@@ -5,13 +5,13 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript">
 	window.addEventListener('load',function(){
-	//數據用 random 的方式產生
+	//數據
 	var data=[
- 	{x:1, w:Math.floor(Math.random()*200),z:"好雷"},
-  	{x:2, w:Math.floor(Math.random()*200),z:"普雷"},
-  	{x:3, w:Math.floor(Math.random()*200),z:"負雷"},
-  	{x:4, w:Math.floor(Math.random()*200),z:"雷丘"},
-  	{x:5, w:Math.floor(Math.random()*200),z:"打雷"},
+ 	["好雷",20],
+  	["普雷",10],
+  	["負雷",5],
+  	["雷丘",30],
+  	["打雷",1],
 	];
 	//svg畫布的長寬
 	var width = 1024;
@@ -24,21 +24,21 @@
 		.enter()
 		.append("rect")
 		.text(function(d,i){
-			return i + "/" + d[2];
+			return i + "/" + d[0];
 		})
 		.attr({
 		//長條圖顏色
 		"fill":"#09c",
 		//各長條的長度，以w的數值而定
-		"width":function(d){
-			return d.w;
+		"width":function(d,i){
+			return d[1]*50;
 		},
 		//各長條的高固定
 		"height":30,
 		//定位座標：X為0,y取一定間隔
 		"x":0,
-		"y":function(d){
-			return (d.x-1)*35;
+		"y":function(d,i){
+			return i*35;
 		}
 		});
  	},false);
