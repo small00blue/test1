@@ -14,7 +14,7 @@
 	var width = 1024;
 	var height = 768;
 	var bar = d3.select("body").append("svg").attr("width", width).attr("height", height);
-	bar.selectAll("rect").data(data).append("rect").attr({
+	bar.selectAll("rect").data(data).enter().append("rect").attr({
 		"fill":"#09c",
 		"width":function(d){
 			return d.w;
