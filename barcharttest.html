@@ -19,19 +19,18 @@
 	//插入svg畫布
 	var bar = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	//選擇所有數據，畫長方形
-	bar.selectAll("rect")
+	bar .selectAll("rect")
 		.data(data)
-		.enter()
-		.append("rect")
-		.text(function(d,i){
-			return i + "/" + d[0];
-		});
+		.enter().append("rect")
+		.text(function(d){
+			return d[0];
+		})
 		.attr({
 		//長條圖顏色
 		"fill":"#09c",
 		//各長條的長度，以w的數值而定
 		"width":function(d,i){
-			return d[1]*50;
+			return d[1]*20;
 		},
 		//各長條的高固定
 		"height":30,
