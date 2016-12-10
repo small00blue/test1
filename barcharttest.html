@@ -26,7 +26,7 @@
 	var xScale = d3.scale.linear() 
 		.domain([0, data.length]) //傳入的值是原始資料的最小及最大值
 		.range([padding , width - padding]) //輸出的範圍是左邊的padd距離，到右邊的padding
-    //類似X軸的尺度
+    //Y軸的尺度
 	var wScale = d3.scale.linear()
 		.domain([Wmin, Wmax])
 		.range([padding, height - padding])
@@ -56,10 +56,23 @@
 			},
 		"title": function(d){
 			return 'Name : ' + d.name;
-			}
-		
+			}		
 		});
- 	},false);
+
+	bar .selectAll("text").data(data).enter() //補上資料數值
+		.append("text") 
+		.text(function(d){ return d.w}) //將值寫到SVG上
+		.attr({
+		"x": function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
+		"y": function(d){return height - wScale(d.w) + 15},
+		"fill": "white", 
+		"text-anchor": "middle",
+		"font-size": "10px" //Fill、font-size也可以用CSS寫喔～
+		});
+
+
+	});
+ 	
  		
 	</script>
   <title>Document</title>
