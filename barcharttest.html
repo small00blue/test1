@@ -7,11 +7,11 @@
 	window.addEventListener('load',function(){
 	//數據用 random 的方式產生
 	var data=[
- 	{x:1, w:Math.floor(Math.random()*200),},
-  	{x:2, w:Math.floor(Math.random()*200),},
-  	{x:3, w:Math.floor(Math.random()*200),},
-  	{x:4, w:Math.floor(Math.random()*200),},
-  	{x:5, w:Math.floor(Math.random()*200),},
+ 	{ x:1, y:"perfect" , w:100},
+  	{ x:2, y:"good"    , w:200},
+  	{ x:3, y:"soso"    , w:300},
+  	{ x:4, y:"bad"     , w:200},
+  	{ x:5, y:"terrible", w:100},
 	];
 	//svg畫布的長寬
 	var width = 1024;
@@ -30,7 +30,7 @@
 		"width":5,
 		//各長條的高，以w的數值而定
 		"height":function(d){
-			return (d.w)*(-1);
+			return d.w;
 		},
 		//定位座標
 		"x":function(d){
