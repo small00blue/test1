@@ -48,7 +48,7 @@
 		"x": function(d, i){return xScale(i)}, //利用尺度算出X的位置
 		"y": function(d){return height - wScale(d.w)}, //同理算出Y
 		"width": barWidth,
-		"height":function(d){return wScale(d.w)},//同理算出Y
+		"height":0,//同理算出Y
 		// 'r': function(d){return Math.sqrt(h - d[1])}, //圓的大小是高 - Y值的平方
 		"fill": function(d){
 			var color = 0.2 + colorScale(d.w) * 0.001;
@@ -58,7 +58,7 @@
 		.transition()
 		.duration(1500)
 		.attr({
-		"height": 0, 
+		"height": function(d){return wScale(d.w)}, 
 		});
 
 	bar .selectAll("text").data(data).enter() //補上資料數值
