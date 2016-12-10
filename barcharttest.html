@@ -19,24 +19,24 @@
 	//插入svg畫布
 	var bar = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	//選擇所有數據，畫長方形
-	bar.selectAll("rect")
+	bar .selectAll("rect")
 		.data(data)
 		.enter()
 		.append("rect")
 		.attr({
 		//長條圖顏色
 		"fill":"#09c",
-		//各長條的長度，以w的數值而定
-		"width":function(d){
+		//各長條的長固定
+		"width":30,
+		//各長條的高，以w的數值而定
+		"height":function(d){
 			return d.w;
 		},
-		//各長條的高固定
-		"height":30,
 		//定位座標：X為0,y取一定間隔
-		"x":0,
-		"y":function(d){
-			return (d.x-1)*35;
-		}
+		"x":function(d){
+			return (d.x)*10;
+		},
+		"y":700,
 		});
  	},false);
  		
