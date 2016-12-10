@@ -9,11 +9,11 @@ function barchart()
 	window.addEventListener('load',function(){
 	//數據用 random 的方式產生
 	var data=[
- 	{x:1, w:Math.floor(Math.random()*200),z:"好雷"},
-  	{x:2, w:Math.floor(Math.random()*200),z:"普雷"},
-  	{x:3, w:Math.floor(Math.random()*200),z:"負雷"},
-  	{x:4, w:Math.floor(Math.random()*200),z:"雷丘"},
-  	{x:5, w:Math.floor(Math.random()*200),z:"打雷"},
+ 	{x:1, w:Math.floor(Math.random()*200),},
+  	{x:2, w:Math.floor(Math.random()*200),},
+  	{x:3, w:Math.floor(Math.random()*200),},
+  	{x:4, w:Math.floor(Math.random()*200),},
+  	{x:5, w:Math.floor(Math.random()*200),},
 	];
 	//svg畫布的長寬
 	var width = 1024;
@@ -25,9 +25,6 @@ function barchart()
 		.data(data)
 		.enter()
 		.append("rect")
-		.text(function(d,i){
-			return i + "/" + d[0];
-		})
 		.attr({
 		//長條圖顏色
 		"fill":"#09c",
