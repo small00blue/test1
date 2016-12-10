@@ -40,9 +40,9 @@
 		.append("rect")
 		.attr({
 		"x": function(d, i){return xScale(i)}, //利用尺度算出X的位置
-		"y": function(d){return height - wScale(d.A)}, //同理算出Y
+		"y":  function(d){return wScale(d.A)}, //同理算出Y
 		"width": barWidth,
-		"height": function(d){return wScale(d.A)}, //同理算出Y
+		"height": function(d){return height - wScale(d.A)}, //同理算出Y
 		// 'r': function(d){return Math.sqrt(h - d[1])}, //圓的大小是高 - Y值的平方
 		"fill": function(d){
 			var color = 0.2 + colorScale(d.A) * 0.001;
