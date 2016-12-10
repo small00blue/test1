@@ -70,7 +70,7 @@
 	    .text(function(d){ return d.no}) //寫入人名
 	    .attr({
 		"x": function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
-		"y": function(d){return height - wScale(d.w) - 10},
+		"y": function(d){return height - wScale(d.A) - 10},
 		"fill": "black", //文字填滿為超漂亮灰色
 		"text-anchor": "middle",
 		"font-size": "30px" //Fill、font-size也可以用CSS寫喔～
