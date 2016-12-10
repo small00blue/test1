@@ -5,38 +5,59 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript">
 	window.addEventListener('load',function(){
-	//數據用 random 的方式產生
+	//數據
 	var data=[
- 	{ x:1, y:"perfect" , w:100},
-  	{ x:2, y:"good"    , w:200},
-  	{ x:3, y:"soso"    , w:300},
-  	{ x:4, y:"bad"     , w:200},
-  	{ x:5, y:"terrible", w:100},
+ 	{ x:1, y:"perfect" , w:50},
+  	{ x:2, y:"good"    , w:150},
+  	{ x:3, y:"soso"    , w:250},
+  	{ x:4, y:"bad"     , w:150},
+  	{ x:5, y:"terrible", w:50},
 	];
-	//svg畫布的長寬
-	var width = 1024;
-	var height = 768;
+	//svg畫布的長寬及相關數值
+	var width = 600;
+	var height = 250;
+	var padding = 30;
+	var barMargin = 2;
+	
+	//取得Y軸的最大值
+	var Wmax = d3.max(data, function(d){return d.w}),
+		Wmin = d3.min(data, function(d){return d.w});
+	//產生一個屬於X軸的線性尺度
+	var xScale = d3.scale.linear() 
+		.domain([0, data.length]) //傳入的值是原始資料的最小及最大值
+		.range([padding , width - padding]) //輸出的範圍是左邊的padd距離，到右邊的padding
+    //類似X軸的尺度
+	var wScale = d3.scale.linear()
+		.domain([Wmin, Wmax])
+		.range([padding, height - padding])
+	//這次顏色都要用尺度來算	
+	var colorScale = d3.scale.linear()
+		.domain([Wmin, Wmax])
+		.range([0, 700])
+	var barWidth = (width - padding*2) / data.length - barMargin;
+
 	//插入svg畫布
 	var bar = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
 	//選擇所有數據，畫長方形
 	bar .selectAll("rect")
 		.data(data)
 		.enter()
 		.append("rect")
 		.attr({
-		//長條圖顏色
-		"fill":"#09c",
-		//各長條的寬固定
-		"width":5,
-		//各長條的高，以w的數值而定
-		"height":function(d){
-			return 350-(350*2*(d.w));
-		},
-		//定位座標
-		"x":function(d){
-			return (d.x)*15;
-		},
-		"y":350,
+		"x": function(d, i){return xScale(i)}, //利用尺度算出X的位置
+		"y": function(d){return height - wScale(d.w)}, //同理算出Y
+		"width": barWidth,
+		"height":function(d){return wScale(d.w)}, //同理算出Y
+		// 'r': function(d){return Math.sqrt(h - d[1])}, //圓的大小是高 - Y值的平方
+		"fill": function(d){
+			var color = 0.2 + colorScale(d.w) * 0.001;
+			return  d3.hsl(200 ,color, color); //利用尺度來算出顏色
+			},
+		"title": function(d){
+			return 'Name : ' + d.name;
+			}
+		
 		});
  	},false);
  		
