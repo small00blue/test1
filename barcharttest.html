@@ -42,17 +42,15 @@
 		"x": function(d, i){return xScale(i)}, //利用尺度算出X的位置
 		"y": function(d){return height - wScale(d.A)}, //同理算出Y
 		"width": barWidth,
-		"height":0,//同理算出Y
+		"height":function(d){return wScale(d.A)}, ,//同理算出Y
 		// 'r': function(d){return Math.sqrt(h - d[1])}, //圓的大小是高 - Y值的平方
 		"fill": function(d){
 			var color = 0.2 + colorScale(d.A) * 0.001;
 			return  d3.hsl(200 ,color, color); //利用尺度來算出顏色
 			},	
-		})
-		.transition()
-		.duration(1500)
-		.attr({
-		"height": function(d){return wScale(d.A)}, 
+		"title": function(d){
+			return "type : " + d.no;
+			}	
 		});
 
 	bar .selectAll("text").data(data).enter() //補上資料數值
