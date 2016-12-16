@@ -63,7 +63,7 @@
     			})
     	   .attr("text-anchor", "middle")
     	   .text(function(d){
-      			return  d.y ; //在每個形狀的中央插入文字
+      			return  d.data.x + d.data.y ; //在每個形狀的中央插入文字
     			})
     	  .attr("fill", "white");		  
   </script>
