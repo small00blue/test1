@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the user-interface definition of a Shiny web application. You can\n# run the application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(leaflet)\n\n# Define UI for application that draws a histogram\nshinyUI(fluidPage(\n  \n  # Application title\n  titlePanel(\"Old Faithful Geyser Data\"),\n  \n  # Sidebar with a slider input for number of bins \n  sidebarLayout(\n    sidebarPanel(\n       sliderInput(\"bins\",\n                   \"Number of bins:\",\n                   min = 1,\n                   max = 50,\n                   value = 30),\n       numericInput(\"mean\", \n                    label = h3(\"mean input\"), \n                    value = 0),\n       numericInput(\"var\", \n                    label = h3(\"var input\"), \n                    value = 1),\n       numericInput(\"lng\", \n                    label = h3(\"log input\"), \n                    value = 121.537572),\n       numericInput(\"lat\", \n                    label = h3(\"lat input\"), \n                    value = 25.015545),\n       textInput(\"name\",\n                 label = h3(\"location name\"),\n                 value = 'NTU')\n    ),\n    \n    # Show a plot of the generated distribution\n    mainPanel(\n       plotOutput(\"distPlot\"),\n       plotOutput(\"meanAndvar\"),\n       leafletOutput(\"map\")\n    )\n  )\n))\n",
+    "created" : 1481605309513.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1650067453",
+    "id" : "C7CF569",
+    "lastKnownWriteTime" : 1481612422,
+    "last_content_update" : 1481612422177,
+    "path" : "~/pecu9/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
