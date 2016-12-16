@@ -20,7 +20,7 @@
 	//定義顏色
 	var color = d3.scale.category10();
 	//資料
-	var dd = [
+	var data = [
   	{ x:"good", y:30},
   	{ x:"bad" , y:70},] ;
 	
@@ -40,10 +40,10 @@
        //建立一個layout pie物件，無排序
        var pie = d3.layout.pie()
 	        .sort(null) 
-	        .value(function(d) {return d.y });		
+	        .value(function(d) {return d.y});		
 							 
 	var g1 = svg.selectAll("g")
-	       .data(pie(dd))
+	       .data(pie(data))
 	       .enter()
 	       .append("g")
 	       //實際畫圓的方式是以SVG圖形路徑（Path）來繪製
@@ -53,8 +53,18 @@
                .attr("d", arc1)
                .style("fill", function(d) { 
 	             return color(d.data); 
-		  });   
-              				  
+		  });
+
+    	g1.append('text')
+    	  .attr('transform', function(d){
+      		return 'translate('+ arc1.centroid(d) +')';
+      		//centroid()任何形狀的中心點
+    			})
+    	  .attr('text-anchor', 'middle')
+    	  .text(function(d){
+      		return  d.data.x + d.data.y; //在每個形狀的中央插入文字
+    			})
+    	  .attr('fill', 'white');		  
   </script>
 </body>
 </html>
