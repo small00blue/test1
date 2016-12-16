@@ -18,8 +18,7 @@
 	    	//位移就是在原本的座標上加上移動的數值。
 	    		.attr("transform", "translate(150,150)");
 	//定義顏色
-	var color = d3.scale.ordinal()
-              	  .range(["red","black"]);
+	var color = dd3.scale.category10();
 	//資料
 	var dd = [
   	{ x:"good", y:30},
