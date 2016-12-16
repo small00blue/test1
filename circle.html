@@ -51,7 +51,14 @@
                .attr("d", arc1)
                .style("fill", function(d) { 
 	             return color(d.data); 
-		  });                      				  
+		  });   
+	svg.append("text").attr({
+		x: 10, 
+		y: 20
+	}).style({
+		fill: "red",
+		"font-size": "42px"
+	});                   				  
   </script>
 </body>
 </html>
