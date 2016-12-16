@@ -8,21 +8,22 @@
 <body>
   <!-- D3.js的Scropt語法要放在Body內 -->
   <script>
+	//資料
+	var data = [
+  	{ x:"good", y:30},
+  	{ x:"bad" , y:70},] ;
 	//新增一個SVG，並設定長、寬
+	var width = 800, height = 800; 
 	var svg = d3.select("body").append("svg")
-            	.attr("width", 800)
-            	.attr("height", 800)
+            	.attr("width", width)
+            	.attr("height", height)
             	.append("g")
             //因為原點座標0,0在左上角，所以必須位移到指定的位置上，
 	   		//否則會因為在畫圓時，圓心座標在0,0而導致部份圖形被裁切。
 	    	//位移就是在原本的座標上加上移動的數值。
 	    		.attr("transform", "translate(150,150)");
 	//定義顏色
-	var color = d3.scale.category20();
-	//資料
-	var data = [
-  	{ x:"good", y:30},
-  	{ x:"bad" , y:70},] ;
+	var color = d3.scale.category10();
 	
 	//繪製圖餅圖，必備的三個：
 	//d3.svg.arc()
@@ -32,13 +33,13 @@
 	//利用arc來產生圓形的accessor函數，
 	//函數包含有內、外圓的角度起迄，
 	//內、外圓的半徑
-	var arc1 = d3.svg.arc()
+	var arc = d3.svg.arc()
 	    //設定內、外圓形的半徑大小
             .outerRadius(100)
             .innerRadius(50);
 			
        //建立一個layout pie物件，無排序
-       var pie = d3.layout.pie()
+    var pie = d3.layout.pie()
 	        .sort(null) 
 	        .value(function(d) {return d.y});		
 							 
@@ -47,23 +48,24 @@
 	       .enter()
 	       .append("g")
 	       //實際畫圓的方式是以SVG圖形路徑（Path）來繪製
-	       .append("path")
+	    g1 .append("path")
 	       //路徑的部份要設定在d屬性中，所以套入arc1函數，
 	       //d3.js會依據資料配合arc1函數產出Path所需的路徑
-               .attr("d", arc1)
-               .style("fill", #d62728, #ff9896 ); 
+           .attr("d", arc)
+           .style("fill", function(d,i) { 
+	            return color(i); 
 		  });
 
-    	g1.append('text')
-    	  .attr('transform', function(d){
-      		return 'translate('+ arc1.centroid(d) +')';
+    	g1 .append("text")
+    	   .attr("transform", function(d){
+      			return "translate("+ arc.centroid(d) +")";
       		//centroid()任何形狀的中心點
     			})
-    	  .attr('text-anchor', 'middle')
-    	  .text(function(d){
-      		return  d.data.x + d.data.y; //在每個形狀的中央插入文字
+    	   .attr("text-anchor", "middle")
+    	   .text(function(d){
+      			return  d.x + d.y; //在每個形狀的中央插入文字
     			})
-    	  .attr('fill', 'white');		  
+    	  .attr("fill", "white");		  
   </script>
 </body>
 </html>
