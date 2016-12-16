@@ -1,14 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>	
   <meta charset="utf-8" />
   <title>Test10_D3.js</title>
-  <!-- d3.js???刻??曉Header??-->
   <script src="https://d3js.org/d3.v3.min.js"></script>
 </head> 
 <body>
-  <!-- D3.js?cropt隤?閬?步ody??-->
-  <script>
-	var title = "魔法精靈"
+   <script>
+	var title = 'QQ'
 	var width = 800, height = 800; 
 	var svg = d3.select("body").append("svg")
             	.attr("width", width)
@@ -16,26 +14,26 @@
             	.append("g")
 	    		.attr("transform", "translate(150,150)");
 	var color = d3.scale.category20();
-	d3.csv("https://jr55662003.github.io/test1/mtest.csv", 
-		function(data)
-		{
-		console.log(data)
+	d3.csv("https://jr55662003.github.io/test1/test.csv", piechart);
+	
+	function piechart(data){
+		console.log(data[0]);
 		var arc = d3.svg.arc()
-	        	.outerRadius(120)
-            	.innerRadius(50);
-    	var pie = d3.layout.pie()
-	    	    .sort(null) 
-	        	.value(function(d) {return d.title});		
+	        		.outerRadius(120)
+            			.innerRadius(50);
+    		var pie = d3.layout.pie()
+	    	    		   .sort(null) 
+	        		   .value(function(d) {return d.QQ});		
 		var g1 = svg.selectAll("g")
-	    	   .data(pie(data))
-	    	   .enter()
-	    	   .append("g");
+	    	   	    .data(pie(data))
+	    	   	    .enter()
+	    	   	    .append("g");
 	    	g1 .append("path")
         	   .attr("d", arc)
         	   .style("fill", function(d,i) { 
 	        	    return color(i) });
-		}
-		);
+	}
+		
 
     
   </script>
