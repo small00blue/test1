@@ -18,10 +18,10 @@
 	    	//位移就是在原本的座標上加上移動的數值。
 	    		.attr("transform", "translate(150,150)");
 	//定義顏色
-	var color = d3.scale()
+	var color = d3.scale.ordinal()
               	  .range(["#abc5c5","#89a68a"]);
 	//資料
-	var dd = [10,20] ;
+	var dd = [30,70] ;
 	
 	//繪製圖餅圖，必備的三個：
 	//d3.svg.arc()
@@ -34,7 +34,7 @@
 	var arc1 = d3.svg.arc()
 	    //設定內、外圓形的半徑大小
             .outerRadius(100)
-            .innerRadius(0);
+            .innerRadius(50);
 			
        //建立一個layout pie物件，無排序
        var pie = d3.layout.pie()
