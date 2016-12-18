@@ -41,13 +41,27 @@
     			})
     		   .attr("text-anchor", "middle")
     	  	   .text(function(d){
-      			return  d.movieTitle + "," + d[title] ; //在每個形狀的中央插入文字
+    	  	   	return d.data.movieTitle + "," + d.value ; //在每個形狀的中央插入文字
     			})
     		  .attr("fill", "white");	
-		}
+    	g1 .append("text")
+    	   	   .attr(
+    	   	   		{"X":10,
+    	   	   		"y":10}
+      			//位置
+    			)
+    		   .attr("text-anchor", "middle")
+    	  	   .text(function(d){
+    	  	   	console.log(d)
+    	  	   	return title ; //在每個形狀的中央插入文字
+    			})
+    		  .attr("fill", "black");	
+
+   		}
 		
 
     
   </script>
 </body>
 </html>
+ 	
