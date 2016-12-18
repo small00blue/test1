@@ -33,7 +33,18 @@
         	   .attr("d", arc)
         	   .style("fill", function(d,i) { 
 	        	    return color(i) });
-	}
+		
+		g1 .append("text")
+    	   	   .attr("transform", function(d){
+      			return "translate("+ arc.centroid(d) +")";
+      			//centroid()任何形狀的中心點
+    			})
+    		   .attr("text-anchor", "middle")
+    	  	   .text(function(d){
+      			return  d[movieTitle] + "," + d[title] ; //在每個形狀的中央插入文字
+    			})
+    		  .attr("fill", "white");	
+		}
 		
 
     
