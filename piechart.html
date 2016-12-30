@@ -16,15 +16,15 @@
             	.append("g")
 	    		.attr("transform", "translate(150,150)");
 	var color = d3.scale.category20();
-	d3.csv("https://small00blue.github.io/test1/movieList.csv", piechart); //這樣寫以後可以加很多其他函式
+	d3.csv("https://small00blue.github.io/test1/mtest.csv", piechart); //這樣寫以後可以加很多其他函式
 	
 	function piechart(data){
 		var arc = d3.svg.arc()
 	        		.outerRadius(120)
-            			.innerRadius(50);
-    		var pie = d3.layout.pie()
-	    	    		   .sort(null) 
-	        		   .value(function(d) {return d[title]}); // 這個方法也能選good and bad		
+            		.innerRadius(50);
+    	var pie = d3.layout.pie()
+	    	    	.sort(null) 
+	        		.value(function(d) {return d[title]}); // 這個方法也能選good and bad		
 		var g1 = svg.selectAll("g")
 	    	   	    .data(pie(data))
 	    	   	    .enter()
