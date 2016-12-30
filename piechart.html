@@ -16,7 +16,7 @@
             	.append("g")
 	    		.attr("transform", "translate(150,150)");
 	var color = d3.scale.category20();
-	d3.csv("https://small00blue.github.io/test1/mtest.csv", piechart); //這樣寫以後可以加很多其他函式
+	d3.csv("https://small00blue.github.io/test1/movietest.csv", piechart); //這樣寫以後可以加很多其他函式
 	
 	function piechart(data){
 		var arc = d3.svg.arc()
@@ -41,8 +41,7 @@
     			})
     		   .attr("text-anchor", "middle")
     	  	   .text(function(d){
-    	  	   	console.log(data)
-    	  	   	//return d.data.movieTitle + "," + d.title ; //在每個形狀的中央插入文字
+    	  	   	return d.data.movieTitle + "," + d.title ; //在每個形狀的中央插入文字
     			})
     		  .attr("fill", "white");	
     	g1 .append("text")
