@@ -41,7 +41,6 @@
     			})
     		   .attr("text-anchor", "middle")
     	  	   .text(function(d){
-    	  	   	console.log(d[title])
     	  	   	//return d.data.movieTitle + "," + d.value ; //在每個形狀的中央插入文字
     			})
     		  .attr("fill", "white");	
@@ -53,7 +52,7 @@
     			)
     		   .attr("text-anchor", "middle")
     	  	   .text(function(d){
-    	  	   	console.log(d)
+    	  	   	console.log(d.data)
     	  	   	return title ; //在每個形狀的中央插入文字
     			})
     		  .attr("fill", "black");	
