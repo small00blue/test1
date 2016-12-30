@@ -24,7 +24,7 @@
             		.innerRadius(50);
     	var pie = d3.layout.pie()
 	    	    	.sort(null) 
-	        		.value(function(d) {return d.title}); // 這個方法也能選good and bad		
+	        		.value(function(d) {return d[title]); // 這個方法也能選good and bad		
 		var g1 = svg.selectAll("g")
 	    	   	    .data(pie(data))
 	    	   	    .enter()
