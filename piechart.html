@@ -42,7 +42,7 @@
     		   .attr("text-anchor", "middle")
     	  	   .text(function(d){
     	  	   	console.log("data");
-    	  	   	return d.data.movieTitle + "," + d.value ; //在每個形狀的中央插入文字
+    	  	   	return d.data.movieTitle + "," + d.title.value ; //在每個形狀的中央插入文字
     			})
     		  .attr("fill", "white");	
     	g1 .append("text")
