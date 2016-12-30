@@ -53,10 +53,7 @@
       			//位置
     			)
     		   .attr("text-anchor", "middle")
-    	  	   .text(function(d){
-    	  	   	console.log(d)
-    	  	   	return title ; //在每個形狀的中央插入文字
-    			})
+    	  	   .text(function(d){return title;}) //在每個形狀的中央插入文字
     		   .attr("fill", "black");	
 
    		}
