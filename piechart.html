@@ -30,10 +30,9 @@
 	    	   	    .enter()
 	    	   	    .append("g");
 	    	g1 .append("path")
-        	   .attr("d", arc)
-        	   .style("fill", function(d,i) { console.log(d); console.log(i); 
-						 return color(i);} );
-		    console.log(g1);
+        	   .attr("data", arc)
+        	   .style("fill", function(d,i) { return color(i);} );
+		    console.log(arc);
 		g1 .append("text")
     	   	   .attr("transform", function(d){
       			return "translate("+ arc.centroid(d) +")";
