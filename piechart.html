@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>	
   <meta charset="utf-8" />
   <title>Test10_D3.js</title>
@@ -8,23 +8,23 @@
    <script>
 	// title放使用者輸入的電影名稱
 
-	var title = '怪獸與他們的產地'
+	var title = '怪獸與牠們的產地'
 	var width = 800, height = 800; 
 	var svg = d3.select("body").append("svg")
-            	.attr("width", width)
-            	.attr("height", height)
-            	.append("g")
-	    		.attr("transform", "translate(150,150)");
+            	    .attr("width", width)
+            	    .attr("height", height)
+            	    .append("g")
+	    	    .attr("transform", "translate(150,150)");
 	var color = d3.scale.category20();
 	d3.csv("https://small00blue.github.io/test1/mtest.csv", piechart); //這樣寫以後可以加很多其他函式
 	
 	function piechart(data){
 		var arc = d3.svg.arc()
-	        		.outerRadius(120)
-            		        	.innerRadius(50);
+	        	        .outerRadius(120)
+            		        .innerRadius(50);
     	        var pie = d3.layout.pie()
-	    	    	    .sort(null)
-	        	    .value(function(d) {return d[title]}); // 這個方法也能選good and bad		
+	    	    	    .sort(null) 
+	                    .value(function(d) {return d[title]}); // 這個方法也能選good and bad		
 		var g1 = svg.selectAll("g")
 	    	   	    .data(pie(data))
 	    	   	    .enter()
@@ -34,7 +34,7 @@
         	   .style("fill", function(d,i) { 
 	        	    return color(i) });
 		
-			g1 .append("text")
+		g1 .append("text")
     	   	   .attr("transform", function(d){
       			return "translate("+ arc.centroid(d) +")";
       			//centroid()任何形狀的中心點
