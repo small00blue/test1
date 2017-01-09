@@ -1,7 +1,7 @@
 ---
 title: "Movie discussion in PTT"
 author: "No.9"
-date: "2017.01.09—¥"
+date: "2017.01.09??"
 output: ioslides_presentation
 ---
 
@@ -10,47 +10,20 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## About us
-- ªì¾ÇªÌ
-- ±q°ò¥»¥Xµo
-- ¹Á¸Õ±N½è¤Æ°Q½×¤å³¹¤Æ¬°¶q¤Æ¹Ïªí§e²{
+- åˆå­¸è€…
+- å¾åŸºæœ¬å‡ºç™¼
+- å˜—è©¦å°‡è³ªåŒ–è¨è«–æ–‡ç« åŒ–ç‚ºé‡åŒ–åœ–è¡¨å‘ˆç¾
 
 ## Our website
 <Here is the picture of our website.>
 
 ## How to do?
-- R»y¨¥§ì¨ú¹q¼vª©¤å³¹¡A¥H¹q¼v¦WºÙ¥[¥H¤ÀÃş¡A¨Ã°Ï¤À¦n­tµû¡C
-- ±N¾ã²z¦nªºÀÉ®×¡A¥Î¥HD3µøÄ±¤Æ¦¨¶ê»æ¹Ï§e²{¡C
-- ³Ì«á¡A²Î¾ã©óºô¯¸¤WÅã¥Ü¡C
+- Rèªè¨€æŠ“å–é›»å½±ç‰ˆæ–‡ç« ï¼Œä»¥é›»å½±åç¨±åŠ ä»¥åˆ†é¡ï¼Œä¸¦å€åˆ†å¥½è² è©•ã€‚
+- å°‡æ•´ç†å¥½çš„æª”æ¡ˆï¼Œç”¨ä»¥D3è¦–è¦ºåŒ–æˆåœ“é¤…åœ–å‘ˆç¾ã€‚
+- æœ€å¾Œï¼Œçµ±æ•´æ–¼ç¶²ç«™ä¸Šé¡¯ç¤ºã€‚
 
 ## Future Development
-- ±¡·P¤ÀªR¡A¤F¸Ñ¨ü²³°¾¦n
-- ¤ù°Ó©M¹q¼v°|¥iÂÇ¦¹¤F¸ÑÆ[²³³ß¦n
+- æƒ…æ„Ÿåˆ†æï¼Œäº†è§£å—çœ¾åå¥½
+- ç‰‡å•†å’Œé›»å½±é™¢å¯è—‰æ­¤äº†è§£è§€çœ¾å–œå¥½
 
-
-## R Markdown
-```{r}
-
-```
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
 
